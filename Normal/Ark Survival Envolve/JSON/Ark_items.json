@@ -1,0 +1,213 @@
+[
+  {
+    "name": "root",
+    "folders": [
+      {
+        "name": "folder1",
+        "folders": [],
+        "items": [],
+        "mod": true
+      },
+      {
+        "name": "[HG]",
+        "folders": [
+          {
+            "name": "储存",
+            "folders": [],
+            "items": [
+              {
+                "name": "HG High Tek Private Box",
+                "materials": {
+                  "水泥": 75,
+                  "角质": 20,
+                  "金属锭": 250,
+                  "电路原件": 1,
+                  "黑曜石": 15
+                },
+                "description": "保险柜，部落成员无法打开，免疫自动摧毁，免疫被Demo Gun捡起或摧毁，外观可自定义，供电时可以为低温仓充电",
+                "put location": "地面/支点",
+                "mod": true,
+                "mod name": "HG Build",
+                "product list": "",
+                "source": "电力",
+                "slots": 40
+              }
+            ],
+            "mod": true
+          },
+          {
+            "name": "车辆",
+            "folders": [],
+            "items": [
+              {
+                "name": "未组装的泰克悬浮艇",
+                "materials": {
+                  "水晶": 60,
+                  "油": 62,
+                  "聚合物": 372,
+                  "能量元素": 168,
+                  "金属锭": 4100,
+                  "电路原件": 268
+                },
+                "description": "制作后会就近生成一个泰克悬浮艇（无能量，视为恐龙）",
+                "put location": "地面",
+                "mod": true,
+                "mod name": "HG Build",
+                "product list": "",
+                "source": "",
+                "slots": 0
+              }
+            ],
+            "mod": true
+          }
+        ],
+        "items": [],
+        "mod": true
+      },
+      {
+        "name": "Automation",
+        "folders": [],
+        "items": [
+          {
+            "name": "S+ Item Collector",
+            "materials": {
+              "水泥": 125,
+              "兽皮": 75,
+              "金属锭": 250
+            },
+            "description": "自动收集恐龙粪便及其产物（收集目标可以自定义），自动将粪便传送至肥料箱",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力/燃烧剂",
+            "slots": 0
+          },
+          {
+            "name": "S+ Farmer",
+            "materials": {
+              "毛皮": 100,
+              "水泥": 250,
+              "兽皮": 100,
+              "金属锭": 100
+            },
+            "description": "自动施肥，自动从肥料箱和蜣螂处获取肥料",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力/卡琳汤",
+            "slots": 0
+          },
+          {
+            "name": "S+ Hatchery",
+            "materials": {
+              "恐龙蛋": 20,
+              "茅草": 500,
+              "角质": 50
+            },
+            "description": "自动收集恐龙蛋（可以自定义收集哪些蛋），自动孵化，加速附近恐龙产卵",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力/稀土肥料",
+            "slots": 0
+          },
+          {
+            "name": "S+ Gardener",
+            "materials": {
+              "毛皮": 100,
+              "水泥": 250,
+              "兽皮": 100,
+              "金属锭": 100
+            },
+            "description": "自动收获耕地，自动拿取防腐盐",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力/啤酒",
+            "slots": 0
+          },
+          {
+            "name": "S+ Nanny",
+            "materials": {
+              "人类毛发": 50,
+              "水泥": 250,
+              "兽皮": 100,
+              "金属锭": 100
+            },
+            "description": "自动喂养恐龙幼崽并留痕，自动拿取防腐盐",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "任何能源",
+            "slots": 100
+          },
+          {
+            "name": "S+ Harvester",
+            "materials": {
+              "元素粉尘": 100,
+              "含矽珍珠": 100,
+              "聚合物": 100,
+              "金属锭": 100
+            },
+            "description": "自动采集附近资源，自动传送至泰克储物箱，装备标本或武器可以加快效率",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力/电池",
+            "slots": 0
+          },
+          {
+            "name": "S+ Item Aggregator",
+            "materials": {
+              "聚合物": 125,
+              "金属锭": 350,
+              "电路原件": 125
+            },
+            "description": "自动收集，自动分配（可自定义收集目标与分配目标）",
+            "put location": "地面/支点",
+            "mod": true,
+            "mod name": "Structures Plus",
+            "product list": "",
+            "source": "无线电力",
+            "slots": 0
+          }
+        ],
+        "mod": true
+      },
+      {
+        "name": "folder2",
+        "folders": [],
+        "items": [],
+        "mod": true
+      }
+    ],
+    "items": [
+      {
+        "name": "item1",
+        "materials": {
+          "material 1": 0,
+          "material 2": 1,
+          "material 3": 1,
+          "material 4": 1,
+          "material 5": 1,
+          "material 6": 1,
+          "material 7": 1
+        },
+        "description": "Description1",
+        "put location": "Ground/Ocean Surface/Air/Support",
+        "mod": true,
+        "mod name": "Name1",
+        "product list": "File name1",
+        "source": "sources",
+        "slots": 0
+      }
+    ],
+    "mod": false
+  }
+]

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .pathClass {
+        font-size: x-large;
+        margin-bottom: 20px;
+    }
+
+    .listTitle {
+        font-size: x-large;
+    }
+
+    .listItem {
+        font-size: large;
+    }
+    .detailTable{
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+    }
+</style>
+<!--slots 为0不一定是没有槽位，有可能是没有储物功能或受限-->
+<!--暂无名称搜索功能-->
+<script>
+    // load mods.json
+    // load Ark_items.json
+    var modList = [];
+    var benchList = [];
+
+    function display_mod_info() {
+        let mod_info = "";
+        for(let i = 0; i < modList.length; i++){
+            mod_info += `<li><a href="javascript:void(0)" onclick="display_work_bench(${i})">${modList[i]['name']}</a></li>`;
+        }
+        document.getElementById('mod_list').innerHTML = mod_info;
+    }
+
+    function display_work_bench(modNum) {
+        document.getElementById('mod_list_title').innerHTML = '/' + modList[modNum]['name'];
+        // load bench list
+        let bench_info = "";
+        for (let i = 0; i < bench_info.length; i++){
+            bench_info += `<li><a href="javascript:void(0)" onclick="reset(${i})">${benchList[i]['name']}</a></li>`;
+        }
+        document.getElementById('mod_list').innerHTML = bench_info;
+    }
+</script>
+<script>
+    var currentPath = [0, 1];
+    // var currentPath = [];
+    var pathName = ['ij', 'ss'];
+    // var pathName = [];
+    var currentContent;
+    var totalContent = {'name': "机床"};
+    // var totalContent = {};
+
+    function updatePath(isAdd, newOrder = 0) {
+        if (isAdd === true) {
+            currentContent = currentContent['folders'];
+            if (newOrder < currentContent.length) {
+                currentContent = currentContent[newOrder];
+                pathName.push(currentPath['name']);
+                updateContent();
+            } else {
+                alert("Error: Wrong index");
+                reset();
+            }
+        } else {
+            currentContent = totalContent;
+            // console.log(currentPath.length)
+            for (let i = 0; i < currentPath.length; i++) {
+                currentContent = totalContent['folders'][currentPath[i]];
+                pathName.push(currentPath['name']);
+            }
+            updateContent();
+        }
+    }
+
+    function addPath(newLevelOrder) {
+        currentPath.push(newLevelOrder);
+        updatePath(true, newLevelOrder);
+    }
+
+    function backPath(newLevel) {
+        if (newLevel === currentPath.length) {
+            return 0;
+        }
+        currentPath = currentPath.slice(0, newLevel);
+        updatePath(false);
+    }
+
+    function reset(target) {
+        totalContent = benchList[target]
+        currentPath = [];
+        pathName = []
+        currentContent = totalContent;
+        updateContent();
+    }
+
+    function updateContent() {
+        displayPath();
+        displayFoldersItems("folder_list");
+        displayFoldersItems("item_list");
+        // display new content on folder_list and item_list
+    }
+
+    function displayPath() {
+        let newPathString = `<span onclick='backPath(0)'><a href='javascript:void(0)'>${totalContent['name']}</a></span>/`
+        for (let i = 1; i <= currentPath.length; i++) {
+            // newPathString += "<span onclick='backPath(" + i + ")'>" + pathName[i - 1] + "</span>";
+            newPathString += `<span onclick='backPath(${i})'><a href="javascript:void(0)">${pathName[i - 1]}</a></span>/`;
+        }
+        document.getElementById("folderPath").innerHTML = newPathString.substr(0, newPathString.length - 1);
+    }
+
+    function displayFoldersItems(area_id){
+        let content = "";
+        if(area_id === "folder_list"){
+            for(let i = 0; i < currentContent['folders'].length; i++){
+                content += `<li><a class="listItem" href="javascript:void(0)" onclick="addPath(${i})">${currentContent['folders'][i]['name']}</a></li>`
+            }
+        }else{
+            for(let i = 0; i < currentContent['items'].length; i++){
+                content += `<li><a class="listItem" href="javascript:void(0)" onclick="displayDetails(${i})">${currentContent['items'][i]['name']}</a></li>`
+            }
+        }
+        document.getElementById(area_id).innerHTML = content;
+    }
+
+    function displayItems(){
+
+    }
+
+    function displayDetails(itemOrder) {
+
+    }
+
+    function GetQueryString(name) {
+        const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        const r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+</script>
+<body>
+<h1 id="he" style="text-align: center">Ark Survival Evolve Items</h1>
+<table style="width: 100%; margin: 0 auto; table-layout: fixed">
+    <tr>
+        <td style="width: 20%; height: 800px; border: 1px solid black; overflow: auto; word-break: break-all; vertical-align: top">
+            <ul><p style="font-size: large">Work Bench in Original and Mods (Unique Only)</p>
+                <p>root<span id="mod_list_title"></span></p>
+                <div id="mod_list">
+                    <li>
+                        <a href="javascript:void(0)" onclick="display_work_bench(0)">Mod 1</a>
+                    </li>
+                </div>
+            </ul>
+        </td>
+        <td style="width: 80%; vertical-align: top;">
+            <div style="width: 90%; margin: 0 auto">
+                <p id="folderPath" class="pathClass">b</p>
+                <hr>
+                <ul style="margin: 20px auto"><p class="listTitle">Folders</p>
+                    <div id="folder_list">
+                        <li>
+                            <a class="listItem" href="javascript:void(0)" onclick="addPath(0)">Folder 1</a>
+                        </li>
+                    </div>
+                </ul>
+                <ul style="margin: 20px auto"><p class="listTitle">Items</p>
+                    <div id="item_list">
+                        <li>
+                            <a class="listItem" href="javascript:void(0)" onclick="displayDetails(0)">Item 1</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <div id="details_table" class="detailTable">
+                <table style="table-layout: fixed; width: 100%; margin-top: 100px">
+                    <tr>
+                        <th colspan="2" id="detail_name">Item Name</th>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top">
+                            <p class="listItem">Para#1</p>
+                            <p id="para1">Value#1</p>
+                        </td>
+                        <td style="vertical-align: top">
+                            <p class="listItem">Para#2</p>
+                            <p id="para2">Value#2</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    // let bench_order = 0;
+    // if(location.search.length > 0){
+    //     var filename = GetQueryString('filename');
+    //     const bench_name = GetQueryString('bench');
+    //     // load benchList with filename
+    //     while(benchList[bench_order]['name'] !== bench_name){
+    //         bench_order++;
+    //     }
+    // }
+    // reset(bench_order)
+
+
+    // alert(location.search.length)
+    // function test(){
+    //     var h = 10
+    //     var str = `大家好${h}，我叫${h}，性别${h},今年${h}岁了`;
+    //     alert(str)
+    //     document.getElementById("he").innerHTML = str;
+    // }
+    //
+    // // reset();
+    // test();
+    // displayPath();
+</script>
+</html>
