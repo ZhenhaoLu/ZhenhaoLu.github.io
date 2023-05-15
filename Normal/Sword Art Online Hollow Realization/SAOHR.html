@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SAO Hollow Realization</title>
+</head>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-size: 20px;
+    }
+
+    #top {
+        width: 100%;
+        height: 10%;
+        outline: 1px solid;
+        background: yellow;
+    }
+
+    #left {
+        width: 20%;
+        height: 90%;
+        position: absolute;
+        outline: 1px solid;
+        background: navajowhite;
+    }
+
+    #right {
+        width: 80%;
+        height: auto;
+        outline: 1px solid;
+        position: absolute;
+        right: 0;
+        background: blue;
+    }
+</style>
+<script>
+    let settings;
+
+    function showMainPage() {
+        let content = settings['0'];
+        let region = document.getElementById('content')
+        region.innerHTML = `
+        <p style="text-align: center; line-height: 20px">${content}</p>
+        `
+    }
+</script>
+<body>
+<div id="top">
+    <h1 style="text-align: center; font-weight: bold">刀剑神域：虚空幻界</h1>
+</div>
+<div id="left">
+    <p style="text-align: center; line-height: 40px">
+        <a href="SAOHR.html">回到首页</a><br/>
+        <a href="SAOHR.html?l1=1">网站内容说明</a><br/>
+        <a href="SAOHR.html?l1=2">留思托利亚大草原</a><br/>
+        <a href="SAOHR.html?l1=3">奥尔多罗布大森林</a><br/>
+        <a href="SAOHR.html?l1=4">裘埃尔皮克湖沼群</a><br/>
+        <a href="SAOHR.html?l1=5">克尔多西几沙漠</a><br/>
+        <a href="SAOHR.html?l1=6">奥尔托勒要塞</a><br/>
+        <a href="SAOHR.html?l1=7">苏塔尔巴多斯遗迹群</a><br/>
+        <a href="SAOHR.html?l1=8">瓦尔坎诺亚旧火山要塞</a><br/>
+        <a href="SAOHR.html?l1=9">诺札斯罗德冰雪地带</a><br/>
+        <a href="SAOHR.html?l1=10">艾利翁沃德异相界</a><br/>
+        <a href="SAOHR.html?l1=11">圣礼之袭</a>
+    </p>
+
+</div>
+<div id="right">
+    <div id="content"></div>
+</div>
+</body>
+<!--<script id="data" type="text/javascript" src="Files/settings.json"></script>-->
+<script type="text/javascript">
+    var reader = new FileReader();
+    reader.readAsText("Files/settings.json");
+
+</script>
+</html>
