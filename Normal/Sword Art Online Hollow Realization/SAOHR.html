@@ -59,7 +59,7 @@
 <script>
     let settings;
     let outMaps = ['', '', '留思托利亚大草原', '奥尔多罗布大森林', '裘埃尔皮克湖沼群', '克尔多西几沙漠', '奥尔托勒要塞',
-        '苏塔尔巴多斯遗迹群', '瓦尔坎诺亚旧火山要塞', '诺札斯罗德冰雪地带', '艾利翁沃德异相界', '圣礼之袭', '其他'];
+        '苏塔尔巴多斯遗迹群', '瓦尔坎诺亚旧火山要塞', '诺札斯罗德冰雪地带', '艾利翁沃德异相界', '圣礼之袭', '特异点·中枢部（千层塔/深渊）'];
 
     function selectPage(l1, l2){
         l1 = l1 || '0';
@@ -76,6 +76,7 @@
             showEquipments(l1, l2);
         }
     }
+
 
     function showShengLiPage(){
         let region = document.getElementById('content');
@@ -128,10 +129,10 @@
             content += `<p style="color: ${font_color}; margin-left: 100px">${weapons[i]['name']}: ${weapons[i]['location']}</p>`;
             content += `
             <table border="1" style="table-layout: fixed; text-align: center; margin-left: 100px">
-            <tr><td>参数1</td><td>参数2</td><td>参数3</td><td>词条1</td><td>词条2</td><td>词条3</td></tr>
+            <tr><td>参数1</td><td>参数2</td><td>参数3</td><td>词条1</td><td>词条2</td><td>词条3</td><td>词条4</td></tr>
             <tr><td>${weapons[i]['parameter'][0]}</td><td>${weapons[i]['parameter'][1]}</td>
             <td>${weapons[i]['parameter'][2]}</td><td>${weapons[i]['parameter'][3]}</td><td>${weapons[i]['parameter'][4]}</td>
-            <td>${weapons[i]['parameter'][5]}</td></tr></table><br>
+            <td>${weapons[i]['parameter'][5]}</td><td>${weapons[i]['parameter'][6] || ""}</td></tr></table><br>
             `
         }
         region.innerHTML = content
@@ -173,7 +174,7 @@
         <a href="SAOHR.html?l1=9">诺札斯罗德冰雪地带</a><br/>
         <a href="SAOHR.html?l1=10">艾利翁沃德异相界</a><br/>
         <a href="SAOHR.html?l1=11">圣礼之袭</a><br/>
-        <a href="SAOHR.html?l1=12">其他获得方式</a><br/>
+        <a href="SAOHR.html?l1=12">特异点·中枢部（千层塔/深渊）</a><br/>
         <a href="SAOrigin.xlsx" download="SAOHR.xlsx">下载至本地</a>
     </p>
 
@@ -189,13 +190,17 @@
             "可以在左侧菜单栏中点击“网站内容说明”<br/>您可以在左侧菜单栏选择大地图并查阅可以获得的武器。" +
             "也可以点击”圣礼之袭“以查阅那些可以在圣礼之袭中获得的武器<br/>" +
             "如果您发现本站内容有错误或者遗漏的地方请发送邮件至en3512345@gmail.com 【标题中请包括发现错误的游戏名称，错误类型（需要补充/错误），内容中如果能附带图片会更好。】",
-        "1": "本网站仅收录可以在游戏中（不含深渊）重复获得的装备：蓝、红色宝箱，boss\n所有装备参数均为0强化，0神谕, 只收录随机值" +
+        "1": "本网站仅收录可以在游戏中重复获得的装备：蓝、红色宝箱，boss\n所有装备参数均为0强化，0神谕, 只收录随机值" +
             "\n大部分装备的参数都是“绝对能达到5星”的参数，并非5星的下限，敬请注意\n少数装备的文字为红色表示该武器的参数并非初始五星。本网站会持续更新" +
             "\n本网站不含“通过进化获得的装备”，" +
             "因为可以通过选择合适的铁匠使其达到最大值\n装备参数的取值方法为：取曾经刷出的所有该装备的各项参数的最大值。" +
             "故本网站不保证玩家能刷出与本网站提供的数据相同的装备\n本网站提供包含所有装备参数的excel文件。可以通过左侧菜单最底下的链接下载。" +
             "\n”完成本图xx个绿圈任务“指完成本图的所有绿圈任务一次，xx指该地图包含xx个不同任务\n联机模式下也可以单人游玩" +
-            "\n深渊中可以获得的传说装备暂未收录，之后会有\n页面简陋，还望见谅\n\n09/03/2023更新：除深渊外所有地图宝箱中的装备参数均可达到初始5星",
+            "\n特异点·中枢部（千层塔/深渊）相关装备的数据由于波动极大参考价值较小，理论上于950-999层获取最佳" +
+            "\n目前于特异点·中枢部（千层塔/深渊）中获得的护符、" +
+            "戒指类装备中同时有’双词条与三词条‘和‘三词条与四词条’，理论上仍然有缺失的数据，验证后会进行补充\n页面简陋，还望见谅" +
+            "\n09/03/2023更新：除深渊外所有地图宝箱中的装备参数均可达到初始5星" +
+            "\n09/06/2023更新：添加特异点·中枢部（千层塔/深渊）中可以获得的具有随机参数的装备的信息，阐释者、逐暗者信息缺失",
         "2":[
             {
                 "name": "浮尼亚斯浸蚀丘陵",
@@ -4997,7 +5002,743 @@
                ]
             }
         },
-        "12":[],
+        "12":[
+            {
+                "name": "头盔（可通过开启蓝色宝箱获得）",
+                "equipments": [
+                    {
+                        "name": "天鹅绒耳环",
+                        "location": "",
+                        "parameter": ["VIT+380", "DEX+245", "", "以SP量攻击力UP+15%", "HP治疗+30", "", ""]
+                    },
+                    {
+                        "name": "神秘乌托邦",
+                        "location": "",
+                        "parameter": ["VIT+463", "DEX+423", "", "背后CRT上升+30%", "CRT时攻击力+35%", "", ""]
+                    },
+                    {
+                        "name": "精灵耳饰",
+                        "location": "",
+                        "parameter": ["VIT+435", "AGI+441", "", "SP治疗+10%", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "海妖耳塞",
+                        "location": "",
+                        "parameter": ["VIT+511", "AGI+467", "", "背后CRT上升+40%", "冲刺攻击力+120%", "", ""]
+                    },
+                    {
+                        "name": "幸运头盔",
+                        "location": "",
+                        "parameter": ["VIT+474", "DEX+393", "", "Weak目标攻击力+30%", "Weak目标异常状态命中+50%", "", ""]
+                    },
+                    {
+                        "name": "冥王之力耳环",
+                        "location": "",
+                        "parameter": ["STR+431", "VIT+507", "", "背后CRT上升+40%", "CRT时攻击力+35%", "", ""]
+                    },
+                    {
+                        "name": "黑圣徒耳环",
+                        "location": "",
+                        "parameter": ["STR+286", "VIT+233", "", "MaxHP+30%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "智慧呢喃耳环",
+                        "location": "",
+                        "parameter": ["VIT+190", "AGI+154", "", "攻击速度UP+8%", "背后CRT上升+30%", "", ""]
+                    },
+                    {
+                        "name": "亡国耳饰",
+                        "location": "",
+                        "parameter": ["STR+386", "AGI+465", "", "重新施展时间-5%", "以HP量攻击力UP+20%", "", ""]
+                    },
+                    {
+                        "name": "神话耳环",
+                        "location": "",
+                        "parameter": ["VIT+211", "DEX+207", "", "HP回复量UP+30%", "背后CRT上升+30%", "", ""]
+                    },
+                    {
+                        "name": "堕落的幻魔耳饰",
+                        "location": "",
+                        "parameter": ["VIT+272", "DEX+288", "", "HP回复量UP+35%", "SP治疗+10", "", ""]
+                    },
+                    {
+                        "name": "象牙耳环",
+                        "location": "",
+                        "parameter": ["VIT+442", "AGI+415", "", "攻击力+20%", "CRT时攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "导引耳饰",
+                        "location": "",
+                        "parameter": ["DEX+501", "AGI+487", "", "背后CRT上升+30%", "异常状态命中UP+40%", "", ""]
+                    },
+                    {
+                        "name": "青金石耳环",
+                        "location": "",
+                        "parameter": ["DEX+460", "AGI+474", "", "CRT时攻击力+30%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "伊卡洛斯耳罩",
+                        "location": "",
+                        "parameter": ["VIT+221", "DEX+166", "", "攻击力+15%", "攻击速度UP+6%", "", ""]
+                    },
+                    {
+                        "name": "强力耳环",
+                        "location": "",
+                        "parameter": ["STR+292", "DEX+265", "", "以HP量攻击力UP+20%", "剑技DMG调整UP+25%", "", ""]
+                    },
+                    {
+                        "name": "阴暗耳环",
+                        "location": "",
+                        "parameter": ["STR+303", "DEX+269", "", "防御力+20%", "CRT耐性+100%", "", ""]
+                    },
+                    {
+                        "name": "洞察头盔",
+                        "location": "",
+                        "parameter": ["VIT+258", "AGI+200", "", "SP治疗+10", "EXP+10%", "", ""]
+                    },
+                    {
+                        "name": "丑角面甲头盔",
+                        "location": "",
+                        "parameter": ["STR+264", "DEX+245", "", "CRT耐性+25%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "阿芙萝黛蒂耳饰",
+                        "location": "",
+                        "parameter": ["STR+458", "AGI+446", "", "CRT时攻击力+35%", "以HP量攻击力UP+20%", "", ""]
+                    },
+                    {
+                        "name": "将军耳环",
+                        "location": "",
+                        "parameter": ["STR+465", "VIT+482", "", "HP回复量UP+30%", "背后CRT上升+30%", "", ""]
+                    },
+                    {
+                        "name": "冷静头盔",
+                        "location": "",
+                        "parameter": ["VIT+486", "DEX+401", "", "重新施展时间-12%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "连结耳环",
+                        "location": "",
+                        "parameter": ["DEX+361", "AGI+224", "", "SP治疗+10", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "勇气面罩",
+                        "location": "",
+                        "parameter": ["VIT+518", "AGI+440", "", "攻击力+20%", "剑技DMG调整UP+25%", "", ""]
+                    },
+                    {
+                        "name": "非凡耳环",
+                        "location": "",
+                        "parameter": ["VIT+382", "DEX+353", "", "攻击力+20%", "防御力+20%", "", ""]
+                    }
+                ]
+            },
+            {
+                "name": "手环（可通过开启蓝色宝箱获得）",
+                "equipments": [
+                    {
+                        "name": "米诺陶洛斯的拥抱",
+                        "location": "",
+                        "parameter": ["STR+471", "VIT+438", "", "以HP量攻击力UP+20%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "圣约腕套",
+                        "location": "",
+                        "parameter": ["STR+454", "VIT+416", "", "剑技DMG调整UP+25%", "Weak目标异常状态命中+50%", "", ""]
+                    },
+                    {
+                        "name": "耀变原石手镯",
+                        "location": "",
+                        "parameter": ["STR+280", "VIT+270", "", "剑技DMG调整UP+25%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "慈悲之影腕套",
+                        "location": "",
+                        "parameter": ["STR+461", "AGI+445", "", "剑技DMG调整UP+25%", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "皇家手镯",
+                        "location": "",
+                        "parameter": ["STR+323", "VIT+271", "", "防御力+15%", "攻击力+20%", "", ""]
+                    },
+                    {
+                        "name": "守护环伺首饰",
+                        "location": "",
+                        "parameter": ["STR+441", "VIT+399", "", "SP治疗+3", "CRT时攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "神技腕饰",
+                        "location": "",
+                        "parameter": ["STR+464", "AGI+419", "", "攻击力+20%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "崩天腕饰",
+                        "location": "",
+                        "parameter": ["STR+476", "AGI+453", "", "以HP量攻击力UP+20%", "反击+5%", "", ""]
+                    },
+                    {
+                        "name": "突击手镯",
+                        "location": "",
+                        "parameter": ["STR+448", "DEX+445", "", "攻击力+20%", "CRT时攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "阿多尼斯的手环",
+                        "location": "",
+                        "parameter": ["STR+466", "DEX+384", "", "背后CRT上升+40%", "Weak目标攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "咒语手环",
+                        "location": "",
+                        "parameter": ["STR+370", "AGI+337", "", "以SP量攻击力UP+20%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "天使腕套",
+                        "location": "",
+                        "parameter": ["STR+250", "VIT+242", "", "仇恨上升调整+5%", "损伤倍率调整+20%", "", ""]
+                    },
+                    {
+                        "name": "敏锐手镯",
+                        "location": "",
+                        "parameter": ["STR+485", "DEX+455", "", "背后CRT+30%", "CRT时攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "炽天使的手环",
+                        "location": "",
+                        "parameter": ["STR+454", "DEX+449", "", "重新施展时间-12%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "哈迪斯之死臂章",
+                        "location": "",
+                        "parameter": ["STR+152", "AGI+149", "", "SP治疗+10", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "灾源腕套",
+                        "location": "",
+                        "parameter": ["STR+345", "DEX+236", "", "攻击力+20%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "掌握手环",
+                        "location": "",
+                        "parameter": ["STR+293", "VIT+277", "", "剑技DMG调整UP+25%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "开拓命运者",
+                        "location": "",
+                        "parameter": ["STR+470", "VIT+429", "", "攻击速度UP+8%", "背后CRT上升+30%", "", ""]
+                    },
+                    {
+                        "name": "智慧手环",
+                        "location": "",
+                        "parameter": ["STR+467", "DEX+400", "", "HP回复量UP+30%", "EXP+10%", "", ""]
+                    },
+                    {
+                        "name": "否决臂镯",
+                        "location": "",
+                        "parameter": ["STR+455", "VIT+436", "", "CRT时攻击力+35%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "诅咒消弭",
+                        "location": "",
+                        "parameter": ["STR+303", "DEX+291", "", "EXP+10%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "六道腕饰",
+                        "location": "",
+                        "parameter": ["STR+467", "VIT+406", "", "SP治疗+10", "EXP+10%", "", ""]
+                    },
+                    {
+                        "name": "牺牲腕套",
+                        "location": "",
+                        "parameter": ["STR+263", "VIT+221", "", "攻击力+20%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "热霾腕套",
+                        "location": "",
+                        "parameter": ["STR+448", "VIT+451", "", "防御力+15%", "攻击力+20%", "", ""]
+                    },
+                    {
+                        "name": "清醒手镯",
+                        "location": "",
+                        "parameter": ["STR+320", "AGI+301", "", "以HP量攻击力UP+20%", "剑技DMG调整UP+25%", "", ""]
+                    }
+                ]
+            },
+            {
+                "name": "首饰（可通过开启蓝色宝箱获得）",
+                "equipments": [
+                    {
+                        "name": "龙牙首饰",
+                        "location": "",
+                        "parameter": ["STR+463", "AGI+481", "", "攻击速度UP+8%", "背后CRT上升+30%", "", ""]
+                    },
+                    {
+                        "name": "光谱链",
+                        "location": "",
+                        "parameter": ["VIT+435", "AGI+449", "", "HP回复量UP+30%", "EXP+10%", "", ""]
+                    },
+                    {
+                        "name": "坠球项链",
+                        "location": "",
+                        "parameter": ["DEX+422", "AGI+436", "", "重新施展时间-5%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "神圣项链",
+                        "location": "",
+                        "parameter": ["DEX+478", "AGI+463", "", "剑技DMG调整UP+25%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "驱虫项链",
+                        "location": "",
+                        "parameter": ["DEX+328", "AGI+256", "", "以SP量攻击力UP+5%", "CRT+20%", "", ""]
+                    },
+                    {
+                        "name": "战斗大师",
+                        "location": "",
+                        "parameter": ["STR+251", "VIT+323", "", "CRT耐性+25%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "灵气之滴",
+                        "location": "",
+                        "parameter": ["VIT+436", "AGI+426", "", "SP治疗+10", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "魔印坠饰",
+                        "location": "",
+                        "parameter": ["VIT+201", "AGI+122", "", "SP治疗+10", "EXP+10%", "", ""]
+                    },
+                    {
+                        "name": "勇气颈链",
+                        "location": "",
+                        "parameter": ["VIT+503", "AGI+416", "", "背后CRT上升+30%", "异常状态命中UP+40%", "", ""]
+                    },
+                    {
+                        "name": "奖励之链",
+                        "location": "",
+                        "parameter": ["STR+216", "VIT+155", "", "EXP+10%", "MaxHP+30%", "", ""]
+                    },
+                    {
+                        "name": "爱侣之链",
+                        "location": "",
+                        "parameter": ["VIT+438", "AGI+412", "", "复活所需时间-10%", "复活时对象HP回复量+25%", "", ""]
+                    },
+                    {
+                        "name": "圣光之链",
+                        "location": "",
+                        "parameter": ["VIT+493", "AGI+488", "", "防御力+15%", "MaxHP+30%", "", ""]
+                    },
+                    {
+                        "name": "威力颈链",
+                        "location": "",
+                        "parameter": ["STR+163", "DEX+270", "", "HP治疗+100", "MaxHP+30%", "", ""]
+                    },
+                    {
+                        "name": "昴宿颈链",
+                        "location": "",
+                        "parameter": ["DEX+238", "AGI+294", "", "重新施展时间-5%", "SP治疗+10", "", ""]
+                    },
+                    {
+                        "name": "石榴石颈链",
+                        "location": "",
+                        "parameter": ["DEX+425", "AGI+520", "", "SP积蓄回复量+25%", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "尖鸣颈链",
+                        "location": "",
+                        "parameter": ["VIT+470", "DEX+549", "", "HP回复量UP+35%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "致胜颈链",
+                        "location": "",
+                        "parameter": ["STR+238", "VIT+318", "", "以HP量攻击力UP+5%", "异常状态命中UP+40%", "", ""]
+                    },
+                    {
+                        "name": "雏菊坠饰",
+                        "location": "",
+                        "parameter": ["STR+486", "DEX+398", "", "攻击力+20%", "Weak目标攻击力+30%", "", ""]
+                    },
+                    {
+                        "name": "贵金属坠饰",
+                        "location": "",
+                        "parameter": ["VIT+271", "AGI+328", "", "剑技DMG调整UP+25%", "SSC输入承受时间+5", "", ""]
+                    },
+                    {
+                        "name": "华石首饰",
+                        "location": "",
+                        "parameter": ["VIT+535", "AGI+435", "", "防御力+10%", "MaxSP+10%", "", ""]
+                    },
+                    {
+                        "name": "圣印首饰",
+                        "location": "",
+                        "parameter": ["STR+333", "DEX+247", "", "CRT时攻击力+30%", "剑技DMG调整UP+25%", "", ""]
+                    },
+                    {
+                        "name": "代罪羔羊颈链",
+                        "location": "",
+                        "parameter": ["DEX+315", "AGI+288", "", "以HP量攻击力UP+20%", "损伤倍率调整+20%", "", ""]
+                    },
+                    {
+                        "name": "狮子之泪",
+                        "location": "",
+                        "parameter": ["STR+335", "DEX+231", "", "HP回复量UP+30%", "背后CRT上升+30%", "", ""]
+                    }
+                ]
+            },
+            {
+                "name": "腰带（可通过开启蓝色宝箱获得）",
+                "equipments": [
+                    {
+                        "name": "污秽之棺",
+                        "location": "",
+                        "parameter": ["VIT+355", "AGI+300", "", "SS消耗SP0-20%", "HP回复量UP+30%", "", ""]
+                    },
+                    {
+                        "name": "美姿腰带",
+                        "location": "",
+                        "parameter": ["VIT+340", "AGI+249", "", "SS消耗SP0-20%", "以SP量攻击力UP+20%", "", ""]
+                    },
+                    {
+                        "name": "燃力腰带",
+                        "location": "",
+                        "parameter": ["STR+387", "VIT+520", "", "攻击力+10%", "防御力+20%", "", ""]
+                    },
+                    {
+                        "name": "复活腰带",
+                        "location": "",
+                        "parameter": ["VIT+447", "DEX+440", "", "SP治疗+3", "HP回复量UP+35%", "", ""]
+                    },
+                    {
+                        "name": "乌拉诺斯腰布",
+                        "location": "",
+                        "parameter": ["VIT+536", "AGI+438", "", "攻击速度UP+8%", "重新施展时间-5%", "", ""]
+                    },
+                    {
+                        "name": "梅塔特隆腰带",
+                        "location": "",
+                        "parameter": ["VIT+117", "DEX+90", "", "重新施展时间-5%", "攻击力+20%", "", ""]
+                    },
+                    {
+                        "name": "提神腰带",
+                        "location": "",
+                        "parameter": ["VIT+466", "AGI+446", "", "SP治疗+8", "剑技DMG调整UP+25%", "", ""]
+                    },
+                    {
+                        "name": "气流腰带",
+                        "location": "",
+                        "parameter": ["VIT+485", "AGI+443", "", "SP治疗+10", "重新施展时间-12%", "", ""]
+                    },
+                    {
+                        "name": "业力腰带",
+                        "location": "",
+                        "parameter": ["STR+240", "VIT+285", "", "EXP+10%", "以HP量攻击力UP+20%", "", ""]
+                    },
+                    {
+                        "name": "半兽半魔带饰",
+                        "location": "",
+                        "parameter": ["VIT+483", "AGI+401", "", "背后攻击时目标仇恨-5%", "SS消耗SP0-20%", "", ""]
+                    },
+                    {
+                        "name": "活力束腹",
+                        "location": "",
+                        "parameter": ["VIT+436", "AGI+435", "", "攻击力+20%", "技能连结攻击力+100", "", ""]
+                    },
+                    {
+                        "name": "胜利王者的黄金缠巾",
+                        "location": "",
+                        "parameter": ["STR+272", "VIT+370", "", "以HP量攻击力UP+20%", "MaxHP+30%", "", ""]
+                    },
+                    {
+                        "name": "守护要害",
+                        "location": "",
+                        "parameter": ["VIT+362", "AGI+311", "", "MaxHP+10%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "拳斗士腰带",
+                        "location": "",
+                        "parameter": ["STR+443", "VIT+449", "", "SSC输入承受时间+5", "Weak目标异常状态命中+50%", "", ""]
+                    },
+                    {
+                        "name": "智慧腰带",
+                        "location": "",
+                        "parameter": ["VIT+307", "DEX+244", "", "背后CRT上升+30%", "攻击速度UP+8%", "", ""]
+                    },
+                    {
+                        "name": "寄宿雷光的腰带",
+                        "location": "",
+                        "parameter": ["VIT+314", "AGI+285", "", "以SP量攻击力UP+5%", "以HP量攻击力UP+15%", "", ""]
+                    },
+                    {
+                        "name": "重启腰带",
+                        "location": "",
+                        "parameter": ["STR+417", "VIT+432", "", "以HP量攻击力UP+15%", "CRT耐性+100%", "", ""]
+                    },
+                    {
+                        "name": "魅惑腰带",
+                        "location": "",
+                        "parameter": ["VIT+335", "DEX+348", "", "MaxHP+30%", "重新施展时间-5%", "", ""]
+                    },
+                    {
+                        "name": "神圣腰带",
+                        "location": "",
+                        "parameter": ["VIT+261", "DEX+160", "", "冲刺攻击力+120%", "MaxHP+30%", "", ""]
+                    },
+                    {
+                        "name": "佩刀皮带",
+                        "location": "",
+                        "parameter": ["VIT+440", "DEX+480", "", "SP治疗+10", "重新施展时间-5%", "", ""]
+                    },
+                    {
+                        "name": "夜叉腰绳",
+                        "location": "",
+                        "parameter": ["VIT+433", "DEX+446", "", "SP治疗+10", "攻击力+20%", "", ""]
+                    },
+                    {
+                        "name": "基因腰带",
+                        "location": "",
+                        "parameter": ["STR+445", "VIT+440", "", "以SP量攻击力UP+20%", "剑技DMG调整UP+25%", "", ""]
+                    },
+                    {
+                        "name": "紧身护腰",
+                        "location": "",
+                        "parameter": ["STR+423", "VIT+508", "", "以HP量攻击力UP+5%", "攻击力+20%", "", ""]
+                    },
+                    {
+                        "name": "激发潜能腰带",
+                        "location": "",
+                        "parameter": ["VIT+369", "AGI+251", "", "MaxHP+30%", "防御力+15%", "", ""]
+                    },
+                    {
+                        "name": "狂怒腰带",
+                        "location": "",
+                        "parameter": ["STR+407", "VIT+446", "", "MaxHP+30%", "复活所需时间-10%", "", ""]
+                    }
+                ]
+            },
+            {
+                "name": "护符（可通过击败宝箱怪，打开‘要求Rank阶级点数达到标准’的房间内的蓝色宝箱，按顺序启动四个开关后打开出现的蓝色宝箱获得）",
+                "equipments": [
+                    {
+                        "name": "奇异厄运链坠",
+                        "location": "",
+                        "parameter": ["STR+244", "AGI+313", "", "攻击速度UP+8%", "攻击力+300", "", ""]
+                    },
+                    {
+                        "name": "激昂安卡",
+                        "location": "",
+                        "parameter": ["STR+290", "AGI+339", "", "重新施展时间-5%", "攻击力+100", "", ""]
+                    },
+                    {
+                        "name": "回忆链坠",
+                        "location": "",
+                        "parameter": ["VIT+166", "AGI+187", "", "掉落率UP+1%", "EXP+10%", "攻击力+200", ""]
+                    },
+                    {
+                        "name": "静气护符",
+                        "location": "",
+                        "parameter": ["VIT+170", "AGI+170", "", "以HP量攻击力UP+20%", "攻击力+200", "", ""]
+                    },
+                    {
+                        "name": "心灵安卡",
+                        "location": "",
+                        "parameter": ["DEX+63", "AGI+147", "", "剑技DMG调整UP+25%", "SSC输入承受时间+5", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "漆黑护符",
+                        "location": "",
+                        "parameter": ["DEX+389", "AGI+438", "", "SP治疗+10", "EXP+10%", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "镇静",
+                        "location": "",
+                        "parameter": ["DEX+327", "AGI+313", "", "剑技DMG调整UP+25%", "攻击速度UP+8%", "攻击力+200", ""]
+                    },
+                    {
+                        "name": "战神护身符",
+                        "location": "",
+                        "parameter": ["VIT+306", "AGI+307", "", "CRT时攻击力+35%", "攻击速度UP+8%", "攻击力+100", ""]
+                    },
+                    {
+                        "name": "冥福护符",
+                        "location": "",
+                        "parameter": ["DEX+225", "AGI+210", "", "防御力+15%", "MaxHP+30%", "攻击力+100", ""]
+                    },
+                    {
+                        "name": "恶魔的低语",
+                        "location": "",
+                        "parameter": ["STR+154", "AGI+223", "", "以HP量攻击力UP+15%", "攻击速度UP+8%", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "技能增益安卡",
+                        "location": "",
+                        "parameter": ["DEX+287", "AGI+365", "", "复活所需时间-10%", "复活时对象HP回复量+25%", "攻击力+100", ""]
+                    },
+                    {
+                        "name": "胜利护符",
+                        "location": "",
+                        "parameter": ["STR+164", "AGI+203", "", "重新施展时间-12%", "攻击速度UP+8%", "攻击力+200", ""]
+                    },
+                    {
+                        "name": "光辉安卡",
+                        "location": "",
+                        "parameter": ["VIT+254", "AGI+269", "", "以SP量攻击力UP+20%", "SS消耗SP0-20%", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "驱逐疼痛",
+                        "location": "",
+                        "parameter": ["DEX+235", "AGI+236", "", "以HP量攻击力UP+20%", "损伤倍率调整+20%", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "赫利奥斯的破魔石",
+                        "location": "",
+                        "parameter": ["STR+195", "AGI+264", "", "SP治疗+10", "MaxSP+10%", "攻击力+300", ""]
+                    },
+                    {
+                        "name": "记忆",
+                        "location": "",
+                        "parameter": ["STR+257", "AGI+254", "", "剑技DMG调整UP+25%", "SS消耗SP0-20%", "攻击力+200", ""]
+                    },
+                    {
+                        "name": "恩底弥翁的驱魔符",
+                        "location": "",
+                        "parameter": ["VIT+286", "AGI+297", "", "背后CRT上升+40%", "Weak目标攻击力+30%", "攻击力+100", ""]
+                    },
+                    {
+                        "name": "圣柜盟约证",
+                        "location": "",
+                        "parameter": ["VIT+228", "AGI+338", "", "攻击力+20%", "防御力+20%", "攻击力+200", ""]
+                    },
+                    {
+                        "name": "白日梦安卡",
+                        "location": "",
+                        "parameter": ["STR+399", "AGI+454", "", "重新施展时间-5%", "SP治疗+10", "攻击力+100", ""]
+                    }
+                ]
+            },
+            {
+                "name": "戒指（可通过击败宝箱怪或HNM敌人获得）",
+                "equipments": [
+                    {
+                        "name": "无限圣贤",
+                        "location": "",
+                        "parameter": ["VIT+187", "DEX+172", "AGI+206", "剑技DMG调整UP+25%", "格挡成功时附加ExWeak+50", "MaxSP+10%", "格挡时间+15"]
+                    },
+                    {
+                        "name": "神谕之光",
+                        "location": "",
+                        "parameter": ["STR+220", "DEX+212", "AGI+224", "重新施展时间-5%", "SP积蓄回复量+25%", "MaxSP+10%", "SP治疗+3"]
+                    },
+                    {
+                        "name": "神谕之影",
+                        "location": "",
+                        "parameter": ["STR+192", "DEX+245", "AGI+244", "CRT时攻击力+35%", "移动速度UP+25%", "JUST踏步SP回复+100", "背后CRT上升+40%"]
+                    },
+                    {
+                        "name": "秘密速记",
+                        "location": "",
+                        "parameter": ["VIT+183", "DEX+188", "AGI+223", "CRT时攻击力+35%", "背后CRT上升+40%", "CRT+20%", "Weak目标攻击力+30%"]
+                    },
+                    {
+                        "name": "反抗速记",
+                        "location": "",
+                        "parameter": ["STR+185", "DEX+266", "AGI+241", "Weak目标攻击力+30%", "盾重量-30%", "Weak目标异常状态命中+50%", "背后CRT上升+40%"]
+                    },
+                    {
+                        "name": "命运预言者",
+                        "location": "",
+                        "parameter": ["STR+231", "DEX+219", "AGI+215", "Weak目标攻击力+30%", "防御力+20%", "以防御值提升攻击力+10%", "剑技DMG调整UP+25%"]
+                    },
+                    {
+                        "name": "心灵速记",
+                        "location": "",
+                        "parameter": ["STR+155", "DEX+229", "AGI+183", "CRT+20%", "以HP量攻击力UP+20%", "HP回复量UP+35%", "CRT时攻击力+35%"]
+                    },
+                    {
+                        "name": "命运实现者",
+                        "location": "",
+                        "parameter": ["STR+160", "DEX+185", "AGI+189", "以SP量攻击力UP+20%", "HP回复量UP+35%", "防御力+20%", "复活时对象HP回复量+25%"]
+                    },
+                    {
+                        "name": "嫉妒速记",
+                        "location": "",
+                        "parameter": ["STR+170", "DEX+200", "AGI+174", "剑技DMG调整UP+25%", "技能连结攻击力+100", "SS消耗SP0-20%", "以防御值提升攻击力+10%"]
+                    },
+                    {
+                        "name": "无限浅眠",
+                        "location": "",
+                        "parameter": ["VIT+185", "DEX+169", "AGI+200", "HP回复量UP+35%", "以自身为目标的对象攻击动作迟缓+30", "防御力+20%", "消耗SP-10%"]
+                    },
+                    {
+                        "name": "无限受托者",
+                        "location": "",
+                        "parameter": ["VIT+189", "DEX+179", "AGI+216", "SP治疗+3%", "以自身为目标的对象攻击动作迟缓+30", "HP回复量UP+35%", "MaxSP+10%"]
+                    },
+                    {
+                        "name": "神谕之洪",
+                        "location": "",
+                        "parameter": ["STR+216", "DEX+194", "AGI+187", "背后CRT上升+40%", "CRT时攻击力+35%", "CRT+20%", "攻击速度UP+12%"]
+                    },
+                    {
+                        "name": "祈祷速记",
+                        "location": "",
+                        "parameter": ["STR+235", "DEX+233", "AGI+211", "剑技DMG调整UP+25%", "踏步消耗SP减少-30%", "背后CRT上升+40%", "CRT时攻击力上升+35%"]
+                    },
+                    {
+                        "name": "命运变化者",
+                        "location": "",
+                        "parameter": ["STR+180", "DEX+205", "AGI+180", "CRT+20%", "攻击力+20%", "HP回复量UP+35%", "剑技DMG调整UP+25%"]
+                    },
+                    {
+                        "name": "命运扭曲者",
+                        "location": "",
+                        "parameter": ["VIT+204", "DEX+173", "AGI+170", "HP回复量UP+35%", "复活所需时间-10%", "SP积蓄回复量+25%", "移动速度UP+25%"]
+                    },
+                    {
+                        "name": "灵魂速记",
+                        "location": "",
+                        "parameter": ["VIT+200", "DEX+180", "AGI+200", "剑技DMG调整UP+25%", "SP治疗+3%", "SSC输入承受时间+5", "SS消耗SP0-20%"]
+                    },
+                    {
+                        "name": "命运否决者",
+                        "location": "",
+                        "parameter": ["STR+161", "DEX+170", "AGI+170", "SS消耗SP0-20%", "SSC输入承受时间+5", "重新施展时间-12%", "剑技DMG调整UP+25%"]
+                    },
+                    {
+                        "name": "无限记录者",
+                        "location": "",
+                        "parameter": ["VIT+220", "DEX+188", "AGI+185", "以SP量攻击力UP+20%", "SSC踏步后输入接受时间+5", "攻击力+20%", "CRT+20%"]
+                    },
+                    {
+                        "name": "神谕之炎",
+                        "location": "",
+                        "parameter": ["STR+155", "DEX+155", "AGI+221", "SSC输入承受时间+5", "以HP量攻击力UP+20%", "SSC连击数+1", "攻击速度UP+12%"]
+                    },
+                    {
+                        "name": "神谕之雷",
+                        "location": "",
+                        "parameter": ["STR+168", "DEX+142", "AGI+205", "攻击速度UP+10%", "SS消耗SP0-20%", "SP治疗+3%", "剑技DMG调整UP+25%"]
+                    },
+                    {
+                        "name": "命运还原者",
+                        "location": "",
+                        "parameter": ["VIT+197", "DEX+201", "AGI+195", "防御力+20%", "MaxHP+30%", "MaxSP+10%", "攻击力+20%"]
+                    },
+                    {
+                        "name": "命运破灭者",
+                        "location": "",
+                        "parameter": ["VIT+286", "DEX+246", "AGI+201", "防御力+20%", "MaxHP+30%", "CRT耐性+100%", "Weak目标攻击力+30%"]
+                    },
+                    {
+                        "name": "命运战士",
+                        "location": "",
+                        "parameter": ["VIT+209", "DEX+195", "AGI+166", "背后CRT上升+40%", "HP回复量UP+35%", "以HP量攻击力UP+20%", "移动速度UP+25%"]
+                    },
+                    {
+                        "name": "神谕之雾",
+                        "location": "",
+                        "parameter": ["STR+180", "DEX+210", "AGI+200", "消耗SP-10%", "踏步消耗SP减少-30%", "移动速度UP+25%", ""]
+                    }
+                ]
+            }
+        ]
     };
     const currentURL = new URL(window.location.href)
     selectPage(currentURL.searchParams.get('l1'), currentURL.searchParams.get('l2'))
